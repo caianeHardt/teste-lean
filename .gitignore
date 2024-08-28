@@ -1,0 +1,46 @@
+docker-compose.yaml
+
+.env
+.env.*
+
+.vscode
+# Arquivos e diretórios gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Diretórios de dependências e pacotes
+node_modules
+dist
+
+# Arquivos de compilação e build
+build/
+dist/
+out/
+target/
+
+# Arquivos de configuração específicos do ambiente
+.env
+.env.*
+
+# Arquivos de cache
+.cache/
+.cached/
+
+# Arquivos de IDE e editor
+.idea/
+.vscode/
+*.sublime-*
+
+# Arquivos de backup
+*.bak
+*.swp
+*~
+
+# Arquivos de dados sensíveis
+secrets.yml
+credentials.json
+
+# Outros arquivos e diretórios específicos do seu projeto
