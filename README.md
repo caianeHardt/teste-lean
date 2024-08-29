@@ -21,20 +21,20 @@ Docker will build and initialize the entire project and database
 
 ```bash
 # build with docker
-$ docker-compose build
+$ make build
 
 # docker up and start 
-$ docker-compose up
+$ make up
 ```
 
 ## Commands Docker
 
 ```bash
 # remove containers
-$ docker-compose down 
+$ make down 
 
 # build without cache
-$ docker-compose build --no-cache
+$ make build
 ```
 
 ## Run tests
@@ -54,6 +54,7 @@ $ npm run test:cov
 project running on port 3000
 
 > **Look at the `use.http` file to find out the endpoints and requirements**
+Se você estiver usando um IDE VScode, precisa instalar um extenso cliente REST, vá no arquivo, clique com o botão direito em `send request` para chamar os endpoints
 
 ## Stay in touch
 

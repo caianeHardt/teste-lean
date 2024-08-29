@@ -2,17 +2,15 @@
 
 ## Endpoint to carry out value transfers between two different users. The sender must have permission to carry out the transfer.
 
-POST {{protocol}}{{host}}:{{port}}/transfer
+POST http://localhost:3000/transfer
 Content-Type: application/json
-example body {
+
+{
     "payer": 1,
     "payee": 2,
-    "value": 100
+    "value": 100.50
 }
 
-## Endpoint to check application status
+### Endpoint to check application status
 
-GET {{protocol}}{{host}}:{{port}}/status
-
-
-
+GET http://localhost:3000/status
