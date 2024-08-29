@@ -10,7 +10,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @ApiOperation({ summary: 'Create count client or account manager' })
-  @Post('/users')
+  @Post('/create-user')
   async createUser(@Body() user: CreateUserDto): Promise<User> {
     return this.userService.createUser(user);
   } 
