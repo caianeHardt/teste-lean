@@ -1,10 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { TransferRequestDto, TransferResponseDto } from 'src/transfer/dto/transfer.dto';
-import { User } from 'src/user/entities/user.entity';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { TransferRequestDto, TransferResponseDto } from '../../transfer/dto/transfer.dto';
+import { User } from '../../user/entities/user.entity';
 import { Account } from '../entities/account.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UserTypeEnum } from '../../user/enum/user-type.enum';
 
 @Injectable()
 export class TransferService {
@@ -19,52 +18,51 @@ export class TransferService {
     const accountPayer = await this.accountRepository.findOne({ where: { id: transferDto.payer } }); 
     const accountPayee = await this.accountRepository.findOne({ where: { id: transferDto.payer } }); 
 
+    await this.hasPermissionForTransfer(accountPayer);
 
-    const userHasBalance = await this.userHasBalance(accountPayer, transferDto.value);
-    if (userHasBalance) {
-      return {
-        message: 'Transfer successful',
-        value: transferDto.value,
-        payer: transferDto.payer,
-        payee: transferDto.payee,
-        date: new Date(),        
-      };
-    } else {
-      return {
-        message: 'Insufficient balance',
-        value: transferDto.value,
-        payer: transferDto.payer,
-        payee: transferDto.payee,
-        date: new Date(), 
-      };
+    await this.userHasBalance(accountPayer, transferDto.value);
+    await this.transferValue(accountPayer, accountPayee, transferDto.value);
+
+    return {
+      message: 'Transfer completed successfully',
+      value: transferDto.value,
+      payer: accountPayer.id,
+      payee: accountPayee.id,
+      date: new Date(),
     }
-    return null;
   }
 
   async userHasBalance(accountPayer: Account, value: number): Promise<boolean> {
     let hasBalance = false;
     if (accountPayer.balance >= value) {
       hasBalance = true;
+    } else {        
+        throw new HttpException('Insufficient balance', HttpStatus.BAD_REQUEST);
     }
     return hasBalance;
-  }
-
-  async transferValue(payerAccount: Account, payeeAccount: Account, value: number): Promise<void> {
-    payerAccount.balance -= value;
-    payeeAccount.balance += value;
-    await this.accountRepository.save(payerAccount);
-    await this.accountRepository.save(payeeAccount);
+   
+  
   }
 
   async hasPermissionForTransfer(payer: Account ): Promise<boolean> {
     const userId = payer.accountOwner;
     const user = await this.userRepository.findOne({ where: { id: userId } });
-    let hasPermission = false;
     const userType = user.userType;
-    console.log(userType, 'user type'	);
-    // if (userType === UserTypeEnum.CLIENT) {
-    //   hasPermission = true;
-    // }
-    return hasPermission;
+    if (userType === 1) {
+      return true;
+    } else {
+      throw new HttpException('No permission for transfer', HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async transferValue(payerAccount: Account, payeeAccount: Account, value: number): Promise<void> {
+    try {
+      payerAccount.balance -= value;
+      payeeAccount.balance += value;
+      await this.accountRepository.save(payerAccount);
+      await this.accountRepository.save(payeeAccount);
+    } catch (error) {
+      throw new HttpException('Error on transfer', HttpStatus.BAD_REQUEST);
+    }
   }
 }

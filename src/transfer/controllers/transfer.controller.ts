@@ -1,6 +1,5 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { User } from 'src/user/entities/user.entity';
-import { TransferRequestDto, TransferResponseDto } from 'src/transfer/dto/transfer.dto';
+import { TransferRequestDto, TransferResponseDto } from '../../transfer/dto/transfer.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { TransferService } from '../services/transfer.service';
 

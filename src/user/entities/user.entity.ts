@@ -22,16 +22,12 @@ export class User {
     password: string;
 
     @ApiProperty()
-    @Column({ nullable: true })
-    cnpj: string;
+    @Column({ nullable: false })
+    document_number: string;
 
-    @ApiProperty()
-    @Column({ nullable: true })
-    cpf: string;
-
-    @ManyToOne(() => UserType, userType => userType.type)
+    @ManyToOne(() => UserType, userType => userType.id)
     @JoinColumn({ name: 'user_type' })
-    userType: UserType;
+    userType: number;
 
     @ApiProperty()
     @Column({ name: 'created_at' })
