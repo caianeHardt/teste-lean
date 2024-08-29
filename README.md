@@ -19,6 +19,12 @@ $ npm install
 ## Compile and run the project
 
 ```bash
+# build with docker
+$ docker-compose build --no-cache
+
+# docker up and start 
+$ docker-compose up
+
 # development
 $ npm run start
 
