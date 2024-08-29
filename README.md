@@ -1,8 +1,16 @@
 ## Description
+### StartUp Fintech
+Project for online payments. 
+Initially we have two types of users on the platform, one who makes payments and the other who just receives. But with the expansion of the product in mind, the project was created to be used on a larger scale. For example, we have a table where we store the types of users and whether or not they can make transfers.
 
+
+This project was created using nestJs and TypeOrm.
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Project setup
+```bash
+$ nvm use 20.17.0
+```
 
 ```bash
 $ npm install
@@ -20,6 +28,13 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+## Docker
+
+```bash
+$ docker-compose build
+```
+
 
 ## Run tests
 
@@ -39,13 +54,10 @@ $ npm run test:cov
 
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
 
 ## Stay in touch
 
-- Author - 
-- Website - 
+- Author - https://www.linkedin.com/in/caianehardt/
+- Website - https://github.com/caianeHardt
 
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
