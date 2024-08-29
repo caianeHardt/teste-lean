@@ -16,7 +16,7 @@ describe('TransferController', () => {
             {
                 provide: UserService,
                 useValue: {
-                transfer: jest.fn(),
+                    createUser: jest.fn(),
                 },
             },
         ],
