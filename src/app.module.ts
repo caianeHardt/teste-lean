@@ -7,12 +7,12 @@ import { GetAppConfiguration } from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmFactory } from './config/typeOrmModule';
 
-const ENV = process.env.NODE_ENV || '.env.dev';
+const ENV = process.env.NODE_ENV || 'dev';
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: ENV,
+      envFilePath: `.env.${ENV}`,
       load: [GetAppConfiguration],
 
     }),

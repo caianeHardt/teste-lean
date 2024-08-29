@@ -11,7 +11,7 @@ CREATE TABLE public.user_type (
 CREATE TABLE public."user" (
 	id bigserial NOT NULL,
 	"name" varchar NOT NULL,
-	"documentNumber" varchar NOT NULL,
+	"document_number" varchar NOT NULL,
 	email varchar NOT NULL,
 	"password" varchar NOT NULL,
 	type_user int4 NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE public.account (
 	id bigserial NOT NULL,
 	account_owner int4 NOT NULL,
 	active bool NOT NULL,
-	balance numeric NOT NULL,
+	balance decimal NOT NULL,
 	created_at timestamptz DEFAULT now() NOT NULL,
 	updated_at timestamptz DEFAULT now() NOT NULL,
 	CONSTRAINT account_pk PRIMARY KEY (id),
@@ -48,13 +48,13 @@ CREATE TABLE public."transaction" (
 );
 
 INSERT INTO public.user_type (type, active, make_payment)
-VALUES ('client', true, true), 
+VALUES ('customer', true, true), 
         ('account_manager', true, false);
 
 INSERT INTO public."user" ("name", "documentNumber", email, "password", type_user) 
 VALUES ('Usuario Cliente Teste', '588.879.670-08', 'teste@example.com', '123456', 1),
 		('Usuario Lojista Teste', '12.345.678/0001-90', 'test1@exemple.com','pass1', 2);
 
-INSERT INTO public.account ("account_owner", "active", balance, active) 
-VALUES ('1', 'true', '100,00', true),
-		('2', 'true', '100,00', true);
+INSERT INTO public.account ("account_owner", "active", balance) 
+VALUES (1, true, 500.00),
+		(2, true, 100.00);

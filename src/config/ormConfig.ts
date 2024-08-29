@@ -2,16 +2,12 @@ import dotenv from 'dotenv';
 import { join } from 'path';
 import { GetAppConfiguration } from './configuration';
 import { DataSource } from 'typeorm';
-import { log } from 'console';
-import { Logger } from '@nestjs/common';
 
 dotenv.config();
 
 const {
     database: { url, type, ssl },
 } = GetAppConfiguration();
-
-console.log('################### url: ', url);
 
 const datasource = new DataSource({
     url,
