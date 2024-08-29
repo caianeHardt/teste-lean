@@ -4,8 +4,7 @@ import { TransferService } from "./services/transfer.service";
 import { Account } from "./entities/account.entity";
 import { Transaction } from "./entities/transaction.entity";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { UserModule } from "src/user/user.module";
-import { User } from "src/user/entities/user.entity";
+import { User } from "../user/entities/user.entity";
 
 @Module(
 
