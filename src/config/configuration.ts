@@ -1,18 +1,21 @@
-const ENV = process.env.NODE_ENV || 'development';
+import * as dotenv from 'dotenv';
+
+const ENV = process.env.NODE_ENV || '.env.dev';
+dotenv.config({ path: '.env.dev' });
 
 export const GetAppConfiguration = () => ({
     env: ENV,
     app: {
         port: parseInt(process.env.PORT, 10) || 3000,
     },
+    documentation: {
+        title: 'Lean StartUp Fintech Documentation',
+        description: 'Startup API',
+        enable: true,
+    },
     database: {
-        type: 'postgres',
-        host: process.env.DB_HOST,
-        port: parseInt(process.env.DB_PORT, 10) || 5432,
-        username: process.env.DB_USERNAME,
-        password: process.env.DB_PASSWORD,
-        name: process.env.DB_NAME,
-        url: process.env.DATABASE_URL,
+        type: process.env.TYPE || 'postgres',
+        url:  `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
         ssl: process.env.DB_SSL === 'true',
     }
 });

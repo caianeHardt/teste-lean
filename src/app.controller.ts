@@ -8,7 +8,7 @@ export class AppController {
 @Get('/status')
 getStatus() {
     return {
-        label: 'Lean Financial API',
+        label: 'Lean StartUp Fintech API',
     }
 }
 }

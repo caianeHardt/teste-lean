@@ -8,9 +8,9 @@ export class TypeOrmFactory implements TypeOrmOptionsFactory {
 
     createTypeOrmOptions(): TypeOrmModuleOptions {
         return {
-            url: this.configService.get('DATABASE_URL'),
+            url: this.configService.get('database.url'),
             type: 'postgres',
-            ssl: this.configService.get('DB_SSL'),
+            ssl: this.configService.get('database.ssl'),
             autoLoadEntities: true,
         } as TypeOrmModuleOptions;
     }

@@ -1,4 +1,3 @@
-import * as path from 'path';
 import { Module } from '@nestjs/common';
 import { TransferModule } from './transfer/transfer.module';
 import { AppController } from './app.controller';
@@ -8,7 +7,7 @@ import { GetAppConfiguration } from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmFactory } from './config/typeOrmModule';
 
-const ENV = process.env.NODE_ENV || 'development';
+const ENV = process.env.NODE_ENV || '.env.dev';
 @Module({
   imports: [
     ConfigModule.forRoot({
