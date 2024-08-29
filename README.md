@@ -32,9 +32,6 @@ $ make up
 ```bash
 # remove containers
 $ make down 
-
-# build without cache
-$ make build
 ```
 
 ## Run tests
@@ -54,7 +51,8 @@ $ npm run test:cov
 project running on port 3000
 
 > **Look at the `use.http` file to find out the endpoints and requirements**
-Se você estiver usando um IDE VScode, precisa instalar um extenso cliente REST, vá no arquivo, clique com o botão direito em `send request` para chamar os endpoints
+
+# If you are using a VScode IDE you need to install an extensive REST client, go to the file, right click on `send request` to call the endpoints
 
 ## Stay in touch
 
@@ -63,7 +61,9 @@ Se você estiver usando um IDE VScode, precisa instalar um extenso cliente REST,
 
 
 ## Info, backlog and future implementations
-- Initially, passwords are encrypted and saved in the bank, however another flow must be implemented, for example, using Firebase to have more security when logging in.
-- Finish create user.
+- Initially, passwords are encrypted and saved in the database, however another flow must be implemented, for example, using Firebase to have more security when logging in.
+- CRUD of users and accounts
 - Finish implementation swagger
+- Implement authentication in the API
+
 
