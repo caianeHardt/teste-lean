@@ -53,15 +53,17 @@ $ npm run test:cov
 ## Resources
 project running on port 3000
 
-Endpoints
-- http://localhost:3000/tranfer
-
-- http://localhost:3000/status
-
-- http://localhost:3000/create-user
+> **Look at the `use.http` file to find out the endpoints and requirements**
 
 ## Stay in touch
 
 - Author - https://www.linkedin.com/in/caianehardt/
 - Website - https://github.com/caianeHardt
+
+
+## Info, backlog and future implementations
+- Initially, passwords are encrypted and saved in the bank, however another flow must be implemented, for example, using Firebase to have more security when logging in.
+- Finish create user.
+- Finish implementation swagger
+- 
 

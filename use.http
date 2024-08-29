@@ -1,0 +1,18 @@
+### Documentation endpoints
+
+## Endpoint to carry out value transfers between two different users. The sender must have permission to carry out the transfer.
+
+POST {{protocol}}{{host}}:{{port}}/transfer
+Content-Type: application/json
+example body {
+    "payer": 1,
+    "payee": 2,
+    "value": 100
+}
+
+## Endpoint to check application status
+
+GET {{protocol}}{{host}}:{{port}}/status
+
+
+

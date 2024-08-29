@@ -52,8 +52,8 @@ VALUES ('customer', true, true),
         ('account_manager', true, false);
 
 INSERT INTO public."user" ("name", "document_number", email, "password", type_user) 
-VALUES ('Usuario Cliente Teste', '588.879.670-08', 'teste@example.com', '123456', 1),
-		('Usuario Lojista Teste', '12.345.678/0001-90', 'test1@exemple.com','pass1', 2);
+VALUES ('Usuario Cliente Teste', '588.879.670-08', 'teste@example.com', '64ad3fb166ddb41a2ca24f1803b8b722', 1),
+		('Usuario Lojista Teste', '12.345.678/0001-90', 'test1@exemple.com','d6b0ab7f1c8ab8f514db9a6d85de160a', 2);
 
 INSERT INTO public.account ("account_owner", "active", balance) 
 VALUES (1, true, 500.00),
