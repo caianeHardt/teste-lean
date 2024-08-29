@@ -5,6 +5,9 @@ dotenv.config({ path: '.env.dev' });
 
 export const GetAppConfiguration = () => ({
     env: ENV,
+    port: 5000,
+    bind: '0.0.0.0',
+    pathPrefix: 'api',
     app: {
         port: parseInt(process.env.PORT, 10) || 3000,
     },

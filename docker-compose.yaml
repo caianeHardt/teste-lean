@@ -3,21 +3,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=db-pass
+      - DB_NAME=database
+      - TYPE=postgres
+      - DB_SSL=false
     ports:
       - "3000:3000"
     command: npm start
     depends_on:
       - postgres
-      - redis
-    networks:
-      - lean-net
-
-  redis:
-    image: redis
-    hostname: redis
-    command: /bin/sh -c "redis-server --required-ass redispass"
-    ports:
-      - "6379:6379"
     networks:
       - lean-net
 
