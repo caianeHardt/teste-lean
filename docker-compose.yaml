@@ -1,0 +1,39 @@
+services:
+  service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    command: npm start
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - lean-net
+
+  redis:
+    image: redis
+    hostname: redis
+    command: /bin/sh -c "redis-server --required-ass redispass"
+    ports:
+      - "6379:6379"
+    networks:
+      - lean-net
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: db-pass
+      POSTGRES_DB: database
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    networks:
+      - lean-net
+
+networks:
+  lean-net:
+    driver: bridge
