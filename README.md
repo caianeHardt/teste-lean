@@ -9,36 +9,32 @@ This project was created using nestJs and TypeOrm.
 
 ## Project setup
 ```bash
-$ nvm use 20.17.0
+$ nvm use 18.0.0
 ```
 
 ```bash
 $ npm install
 ```
 
-## Compile and run the project
+## Starting the project for the first time with docker
+Docker will build and initialize the entire project and database
 
 ```bash
 # build with docker
-$ docker-compose build --no-cache
+$ docker-compose build
 
 # docker up and start 
 $ docker-compose up
-
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Docker
+## Commands Docker
 
 ```bash
-$ docker-compose build
+# remove containers
+$ docker-compose down 
+
+# build without cache
+$ docker-compose build --no-cache
 ```
 
 ## Run tests
@@ -58,9 +54,11 @@ $ npm run test:cov
 project running on port 3000
 
 Endpoints
-http://localhost:3000/tranfer
-http://localhost:3000/status
-http://localhost:3000/create-user
+- http://localhost:3000/tranfer
+
+- http://localhost:3000/status
+
+- http://localhost:3000/create-user
 
 ## Stay in touch
 
