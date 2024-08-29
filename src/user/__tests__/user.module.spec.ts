@@ -1,10 +1,10 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { TransferModule } from "../transfer.module";
+import { UserModule } from "../user.module";
 
-describe('TransferModule', () => {
+describe('UserModule', () => {
     it('should be defined', async () => {
         const module: TestingModule = await Test.createTestingModule({
-            providers: [TransferModule],
+            providers: [UserModule],
         }).compile();
         expect(module).toBeDefined();
     });
