@@ -11,7 +11,6 @@ export class TransferController {
   @ApiOperation({ summary: 'Transfer value between accounts' })
   @Post('/transfer')
   async transfer(@Body()transferDto: TransferRequestDto): Promise<TransferResponseDto> {
-    await this.transferService.transfer(transferDto);
-    return null;
+    return this.transferService.transfer(transferDto);
   }
 }
