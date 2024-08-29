@@ -66,5 +66,4 @@ Se você estiver usando um IDE VScode, precisa instalar um extenso cliente REST,
 - Initially, passwords are encrypted and saved in the bank, however another flow must be implemented, for example, using Firebase to have more security when logging in.
 - Finish create user.
 - Finish implementation swagger
-- 
 
