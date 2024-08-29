@@ -52,7 +52,7 @@ project running on port 3000
 
 > **Look at the `use.http` file to find out the endpoints and requirements**
 
-# If you are using a VScode IDE you need to install an extensive REST client, go to the file, right click on `send request` to call the endpoints
+### If you are using a VScode IDE you need to install an extensive REST client, go to the file, right click on `send request` to call the endpoints
 
 ## Stay in touch
 
