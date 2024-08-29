@@ -41,7 +41,6 @@ $ npm run start:prod
 $ docker-compose build
 ```
 
-
 ## Run tests
 
 ```bash
@@ -56,6 +55,13 @@ $ npm run test:cov
 ```
 
 ## Resources
+project running on port 3000
+
+Endpoints
+http://localhost:3000/tranfer
+http://localhost:3000/status
+http://localhost:3000/create-user
+
 
 
 ## Support

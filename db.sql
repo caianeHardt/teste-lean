@@ -20,7 +20,7 @@ CREATE TABLE public."user" (
 	CONSTRAINT user_pkey PRIMARY KEY (id),
 	CONSTRAINT user_type_fk FOREIGN KEY (type_user) REFERENCES public.user_type(id)
 );
-CREATE UNIQUE INDEX user_documentnumber_idx ON public."user" USING btree ("documentNumber");
+CREATE UNIQUE INDEX user_document_number_idx ON public."user" USING btree ("document_number");
 
 
 CREATE TABLE public.account (
@@ -51,7 +51,7 @@ INSERT INTO public.user_type (type, active, make_payment)
 VALUES ('customer', true, true), 
         ('account_manager', true, false);
 
-INSERT INTO public."user" ("name", "documentNumber", email, "password", type_user) 
+INSERT INTO public."user" ("name", "document_number", email, "password", type_user) 
 VALUES ('Usuario Cliente Teste', '588.879.670-08', 'teste@example.com', '123456', 1),
 		('Usuario Lojista Teste', '12.345.678/0001-90', 'test1@exemple.com','pass1', 2);
 

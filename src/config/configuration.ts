@@ -19,3 +19,11 @@ export const GetAppConfiguration = () => ({
         ssl: process.env.DB_SSL === 'true',
     }
 });
+
+export const GetSwaggerConfiguration = () => ({
+    swagger: {
+        title: 'Lean StartUp Fintech API',
+        description: 'API documentation for Lean StartUp Fintech',
+        version: '1.0.0',
+    },
+});
