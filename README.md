@@ -62,12 +62,6 @@ http://localhost:3000/tranfer
 http://localhost:3000/status
 http://localhost:3000/create-user
 
-
-
-## Support
-
-
-
 ## Stay in touch
 
 - Author - https://www.linkedin.com/in/caianehardt/
