@@ -25,9 +25,9 @@ export class User {
     @Column({ nullable: false })
     document_number: string;
 
-    @ManyToOne(() => UserType, userType => userType.id)
-    @JoinColumn({ name: 'user_type' })
-    userType: number;
+    // @ManyToOne(() => UserType, userType => userType.id)
+    @Column({ name: 'type_user' })
+    typeUser: number;
 
     @ApiProperty()
     @Column({ name: 'created_at' })

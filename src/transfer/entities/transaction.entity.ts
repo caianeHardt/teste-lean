@@ -9,10 +9,6 @@ export class Transaction {
     id: number;
 
     @ApiProperty()
-    @OneToOne(() => User, { eager: true })
-    @JoinColumn({ name: 'account_owner' })    accountOwner: string;
-
-    @ApiProperty()
     @Column({ name: 'amount_paid' })
     amountPaid: number;
 

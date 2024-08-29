@@ -9,7 +9,7 @@ export class Account {
     id: number;
 
     @ApiProperty()
-    @OneToOne(() => User, { eager: true })
+    @OneToOne(() => User )
     @JoinColumn({ name: 'account_owner' })    
     accountOwner: number;
 
